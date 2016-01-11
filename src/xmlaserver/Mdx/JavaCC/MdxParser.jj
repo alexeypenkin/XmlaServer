@@ -1,0 +1,364 @@
+options {
+    STATIC = false;
+    IGNORE_CASE = true;
+    UNICODE_INPUT = true;
+}
+
+PARSER_BEGIN(MdxParser)
+
+package com.penkin.Mdx.JavaCC;
+
+import java.io.Reader;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.penkin.Mdx.Language.MdxExpression;
+import com.penkin.Mdx.Language.MdxFunction;
+import com.penkin.Mdx.Language.MdxFunctionType;
+import com.penkin.Mdx.Language.MdxId;
+import com.penkin.Mdx.Language.MdxIdType;
+import com.penkin.Mdx.Language.MdxAxisDefinition;
+import com.penkin.Mdx.Language.MdxSelectDefinition;
+
+public class MdxParser {
+	public static MdxSelectDefinition parse(String inString) throws ParseException, TokenMgrError {
+		Reader reader = new StringReader(inString);
+		MdxParser parser = new MdxParser(reader);
+		return parser.Start();
+	}
+}
+PARSER_END(MdxParser)
+
+// ----------------------------------------------------------------------------
+
+// Keywords and reserved words.
+TOKEN :
+{
+    <AND: "AND">
+    | <AS: "AS">
+    | <AXIS: "AXIS">
+    | <CASE: "CASE">
+    | <CAST: "CAST">
+    | <CELL: "CELL">
+    | <CHAPTERS: "CHAPTERS">
+    | <COLUMNS: "COLUMNS">
+    | <DIMENSION: "DIMENSION">
+    | <DRILLTHROUGH: "DRILLTHROUGH">
+    | <ELSE: "ELSE">
+    | <EMPTY: "EMPTY">
+    | <END: "END">
+    | <EXPLAIN: "EXPLAIN">
+    | <FIRSTROWSET: "FIRSTROWSET">
+    | <FOR: "FOR">
+    | <FROM: "FROM">
+    | <IN: "IN">
+    | <IS: "IS">
+    | <MATCHES: "MATCHES">
+    | <MAXROWS: "MAXROWS">
+    | <MEMBER: "MEMBER">
+    | <NON: "NON">
+    | <NOT: "NOT">
+    | <NULL: "NULL">
+    | <ON: "ON">
+    | <OR: "OR">
+    | <PAGES: "PAGES">
+    | <PLAN: "PLAN">
+    | <PROPERTIES: "PROPERTIES">
+    | <RETURN: "RETURN">
+    | <ROWS: "ROWS">
+    | <SECTIONS: "SECTIONS">
+    | <SELECT: "SELECT">
+    | <SET: "SET">
+    | <THEN: "THEN">
+    | <WHEN: "WHEN">
+    | <WHERE: "WHERE">
+    | <XOR: "XOR">
+    | <WITH: "WITH">
+}
+
+// set_value_expression functions
+TOKEN :
+{
+    <CROSSJOIN: "CROSSJOIN">
+    | <DRILLDOWNLEVEL: "DRILLDOWNLEVEL">
+    | <DRILLDOWNMEMBER: "DRILLDOWNMEMBER">
+    | <HIERARCHIZE: "HIERARCHIZE">
+    | <MEMBERS: "MEMBERS">
+}
+
+// Cell Properties
+TOKEN :
+{
+    <CELL_PROPERTY: 
+        "ACTION_TYPE"
+        | "BACK_COLOR"
+        | "CELL_ORDINAL"
+        | "FONT_FLAGS"
+        | "FONT_NAME"
+        | "FONT_SIZE"
+        | "FORE_COLOR"
+        | "FORMAT"
+        | "FORMAT_STRING"
+        | "FORMATTED_VALUE"
+        | "LANGUAGE"
+        | "UPDATEABLE"
+        | "VALUE"
+    >
+}
+
+// Dimention properties
+// https://msdn.microsoft.com/en-us/library/ms145528.aspx
+TOKEN :
+{
+    <DIMENTION_PROPERTY: 
+        "CATALOG_NAME"
+        | "DIMENSION_UNIQUE_NAME"
+        | "HIERARCHY_UNIQUE_NAME"
+        | "LEVEL_UNIQUE_NAME"
+        | "MEMBER_CAPTION"
+        | "MEMBER_KEY"
+        | "MEMBER_NAME"
+        | "MEMBER_UNIQUE_NAME"
+        | "MEMBER_VALUE"
+        | "PARENT_UNIQUE_NAME"
+        | "UNIQUE_NAME"
+    >
+}
+// White space
+SKIP :
+{
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\f"
+}
+
+// Operators and other symbols
+TOKEN :
+{
+    < ASTERISK: "*" >
+    | < BANG: "!" >
+    | < COLON : ":" >
+    | < COMMA : "," >
+    | < CONCAT : "||" >
+    | < DOT : "." >
+    | < EQ : "=" >
+    | < GE : ">=" >
+    | < GT : ">" >
+    | < LBRACE : "{" >
+    | < LE : "<=" >
+    | < LPAREN : "(" >
+    | < LT : "<" >
+    | < MINUS : "-" >
+    | < NE : "<>" >
+    | < PLUS : "+" >
+    | < RBRACE : "}" >
+    | < RPAREN : ")" >
+    | < SOLIDUS : "/" >
+}
+
+// Identifiers
+TOKEN : {
+    < START_QUOTED_ID : "[" > : QUOTED_ID_STATE
+}
+
+<QUOTED_ID_STATE> TOKEN : {
+    < END_QUOTED_ID : "]" > : DEFAULT 
+    | < QUOTED_ID_CHAR : ~[] > 
+}
+
+// Identifiers
+TOKEN :
+{
+    < ID: <LETTER> (<LETTER> | <DIGIT>)* >
+    |
+    < AMP_UNQUOTED_ID: "&" ["a"-"z","A"-"Z"] (<LETTER> | <DIGIT>)* >
+    |
+    < #LETTER:
+    [
+        "\u0024",
+        "\u0041"-"\u005a",
+        "\u005f",
+        "\u0061"-"\u007a",
+        "\u00c0"-"\u00d6",
+        "\u00d8"-"\u00f6",
+        "\u00f8"-"\u00ff",
+        "\u0100"-"\u1fff",
+        "\u3040"-"\u318f",
+        "\u3300"-"\u337f",
+        "\u3400"-"\u3d2d",
+        "\u4e00"-"\u9fff",
+        "\uf900"-"\ufaff"
+    ]
+    >
+    |
+    < #DIGIT:
+    [
+        "\u0030"-"\u0039",
+        "\u0660"-"\u0669",
+        "\u06f0"-"\u06f9",
+        "\u0966"-"\u096f",
+        "\u09e6"-"\u09ef",
+        "\u0a66"-"\u0a6f",
+        "\u0ae6"-"\u0aef",
+        "\u0b66"-"\u0b6f",
+        "\u0be7"-"\u0bef",
+        "\u0c66"-"\u0c6f",
+        "\u0ce6"-"\u0cef",
+        "\u0d66"-"\u0d6f",
+        "\u0e50"-"\u0e59",
+        "\u0ed0"-"\u0ed9",
+        "\u1040"-"\u1049"
+    ]
+    >
+}
+
+// ----------------------------------------------------------------------------
+// Entry points
+
+MdxSelectDefinition Start() : 
+{
+    MdxSelectDefinition selectDefinition;
+}
+{
+	selectDefinition = query()
+	
+	<EOF>
+	
+	{
+	    return selectDefinition;
+	}
+}
+
+MdxSelectDefinition query() : 
+{
+    MdxId cube;
+    MdxAxisDefinition a;
+    MdxSelectDefinition subquery;
+    MdxSelectDefinition selectDefinition = new MdxSelectDefinition();
+    MdxExpression w;      
+}
+{
+	<SELECT>
+	(
+	    a = axisSpecification() { selectDefinition.addAxis(a); }
+	    ( <COMMA> a = axisSpecification() { selectDefinition.addAxis(a); } )?
+	)?
+	
+	<FROM>
+	(
+		cube = compoundId() { selectDefinition.setCube(cube); }
+		| ( <LPAREN> subquery = query() <RPAREN> ) { selectDefinition.setSubquery(subquery); }
+	)
+	
+	(
+        <WHERE> 
+        w = mdxSet() { selectDefinition.setWhere(w); }
+    )?
+    
+    ( 
+        ( <CELL> )?
+        <PROPERTIES>    
+        <CELL_PROPERTY> { selectDefinition.addCellProperty(token.image); }
+        ( 
+            <COMMA> 
+            <CELL_PROPERTY> { selectDefinition.addCellProperty(token.image); }
+        )* 
+    )?
+    
+	{ 
+		return selectDefinition; 
+	}
+}
+
+String identifier() :
+{
+    StringBuilder builder = new StringBuilder();
+}
+{
+    <ID> { return token.image; }
+    | ( <START_QUOTED_ID> quotedIdChar(builder) <END_QUOTED_ID> ) { return builder.toString(); }
+}
+
+void quotedIdChar(StringBuilder builder) : {}
+{
+    ( 
+        <QUOTED_ID_CHAR> { builder.append(token.image); }
+    )+
+}
+
+MdxId compoundId() : 
+{
+    String s;
+    List<String> list = new ArrayList<String>();
+}
+{
+    s = identifier() { list.add(s); }
+    (
+        LOOKAHEAD(<DOT> identifier())
+        <DOT> s = identifier() { list.add(s); }
+    )*
+    {
+        //if (list.size() > 3)
+		//	throw new ParseException("Compound ID " + list + " is too long");
+        return new MdxId(list, MdxIdType.UNKNOWN);
+    }
+}
+
+// <axisSpecification> ::= [NON EMPTY] <set> [<dimProps>] ON <axis_name>
+MdxAxisDefinition axisSpecification() :
+{
+    MdxExpression e;
+    MdxAxisDefinition axisDefinition = new MdxAxisDefinition();    
+}
+{
+    (
+        <NON> <EMPTY> { axisDefinition.setNonEmpty(true); }
+    )?
+    e = mdxSet() { axisDefinition.setExpression(e); }
+    (
+        (<DIMENSION>)?
+        <PROPERTIES>
+        <DIMENTION_PROPERTY> { axisDefinition.addProperty(token.image); }
+        (
+            <COMMA>
+            <DIMENTION_PROPERTY> { axisDefinition.addProperty(token.image); }
+        )*
+    )?
+    <ON>
+    (
+        <COLUMNS> { axisDefinition.setOn(token.image); }
+    |   <ROWS> { axisDefinition.setOn(token.image); }
+    )
+    {
+        return axisDefinition;
+    }    
+}    
+
+MdxExpression mdxSet() :
+{
+    MdxExpression e;
+    List<MdxExpression> attributes = new ArrayList<MdxExpression>();
+}
+{
+    LOOKAHEAD( compoundId() <DOT> <MEMBERS> )
+    ( e = compoundId() { attributes.add(e); } <DOT> <MEMBERS> ) { return new MdxFunction(MdxFunctionType.MEMBERS, attributes); }
+    | e = compoundId() { return e; }
+    | ( <LBRACE> e = mdxSet() { attributes.add(e); } ( <COMMA> e = mdxSet() { attributes.add(e); } )* <RBRACE> ) { return new MdxFunction(MdxFunctionType.SET, attributes); }
+    | ( <LPAREN> e = mdxSet() { attributes.add(e); } ( <COMMA> e = mdxSet() { attributes.add(e); } )* <RPAREN> ) { return new MdxFunction(MdxFunctionType.TUPLE, attributes); }
+    | e = mdxSetValueExpression() { return e; }
+}
+
+MdxExpression mdxSetValueExpression() :
+{
+    MdxExpression e;
+    List<MdxExpression> attributes = new ArrayList<MdxExpression>();
+}
+{
+    ( <CROSSJOIN> <LPAREN> e = mdxSet() { attributes.add(e); } <COMMA> e = mdxSet() { attributes.add(e); } <RPAREN> ) { return new MdxFunction(MdxFunctionType.CROSSJOIN, attributes); }
+    | ( <DRILLDOWNLEVEL> <LPAREN> e = mdxSet() { attributes.add(e); } <RPAREN> ) { return new MdxFunction(MdxFunctionType.DRILLDOWNLEVEL, attributes); }
+    | ( <DRILLDOWNMEMBER> <LPAREN> e = mdxSet() { attributes.add(e); } <COMMA> e = mdxSet() { attributes.add(e); } <RPAREN> ) { return new MdxFunction(MdxFunctionType.DRILLDOWNMEMBER, attributes); }
+    | ( <HIERARCHIZE> <LPAREN> e = mdxSet() { attributes.add(e); } <RPAREN> ) { return new MdxFunction(MdxFunctionType.HIERARCHIZE, attributes); }
+}

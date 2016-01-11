@@ -1,0 +1,11 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header><Session xmlns="urn:schemas-microsoft-com:xml-analysis" SessionId="537C61C6-827C-4305-83A6-C8CE4A91001B"/>
+  </soap:Header>
+  <soap:Body>
+    <ExecuteResponse xmlns="urn:schemas-microsoft-com:xml-analysis">
+      <return>
+        <root xmlns="urn:schemas-microsoft-com:xml-analysis:empty"/>
+      </return>
+    </ExecuteResponse>
+  </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,61 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+<cxmla:ExecuteResponse xmlns:cxmla="urn:schemas-microsoft-com:xml-analysis">
+  <cxmla:return>
+    <root xmlns="urn:schemas-microsoft-com:xml-analysis:empty" xmlns:EX="urn:schemas-microsoft-com:xml-analysis:exception" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <xsd:schema xmlns="urn:schemas-microsoft-com:xml-analysis:empty" xmlns:sql="urn:schemas-microsoft-com:xml-sql" elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:xml-analysis:empty">
+
+					<xsd:complexType name="Exception">
+						<xsd:sequence>
+						</xsd:sequence>
+					</xsd:complexType>
+
+					<xsd:complexType name="WarningType">
+						<xsd:attribute name="WarningCode" type="xsd:int" />
+						<xsd:attribute name="Description" type="xsd:string" />
+						<xsd:attribute name="Source" type="xsd:string" />
+						<xsd:attribute name="HelpFile" type="xsd:string" />
+					</xsd:complexType>
+
+					<xsd:complexType name="ErrorType">
+						<xsd:attribute name="ErrorCode" type="xsd:int" />
+						<xsd:attribute name="Description" type="xsd:string" />
+						<xsd:attribute name="Source" type="xsd:string" />
+						<xsd:attribute name="HelpFile" type="xsd:string" />
+					</xsd:complexType>
+
+					<xsd:complexType name="Messages">
+						<xsd:choice minOccurs="1" maxOccurs="unbounded">
+							<xsd:element name="Warning" type="WarningType" />
+							<xsd:element name="Error" type="ErrorType" />
+						</xsd:choice>
+					</xsd:complexType>	  
+		
+        <xsd:element name="root">
+          <xsd:complexType>
+            <xsd:sequence maxOccurs="unbounded">
+			  	<xsd:element name="Exception" type="Exception" />
+				<xsd:element name="Messages" type="Messages" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+		
+      </xsd:schema>
+
+	  			<Exception />
+				<Messages>
+					<Error 
+						ErrorCode="3238199300"
+						Description="Test Error"
+						Source="Microsoft SQL Server 2005 Analysis Services"
+						HelpFile="" 
+					/>
+				</Messages>
+	  
+    </root>
+  </cxmla:return>
+</cxmla:ExecuteResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

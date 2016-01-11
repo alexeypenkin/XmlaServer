@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<soap:ExecuteResponse>
+			<return xmlns="urn:schemas-microsoft-com:xml-analysis">
+				<root xmlns="urn:schemas-microsoft-com:xml-analysis:empty">
+					<Exception xmlns="urn:schemas-microsoft-com:xml-analysis:exception" />
+					<Messages xmlns="urn:schemas-microsoft-com:xml-analysis:exception">
+						<Error ErrorCode="3238002695" Description="Internal error: The operation terminated unsuccessfully." Source="Microsoft SQL Server 2008 R2 Analysis Services" HelpFile="" />
+					</Messages>
+				</root>
+			</return>
+		</soap:ExecuteResponse>
+	</soap:Body>
+</soap:Envelope>

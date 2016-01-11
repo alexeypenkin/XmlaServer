@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+ <soap:Body>
+  <m:DiscoverResponse xmlns:m="urn:schemas-microsoft-com:xml-analysis">
+   <m:return xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <root xmlns="urn:schemas-microsoft-com:xml-analysis:rowset"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     <xsd:schema xmlns="urn:schemas-microsoft-com:xml-analysis:rowset"
+      targetNamespace="urn:schemas-microsoft-com:xml-analysis:rowset"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:sql="urn:schemas-microsoft-com:xml-sql"
+      elementFormDefault="qualified">
+      <xsd:element name="root">
+       <xsd:complexType>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+         <xsd:element name="row" type="row"/>
+        </xsd:sequence>
+       </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="row">
+       <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+        <xsd:element name="PropertyName" type="xsd:string"
+         sql:field="PropertyName"/>
+        <xsd:element name="PropertyDescription" type="xsd:string"
+         sql:field="PropertyDescription"/>
+        <xsd:element name="PropertyType" type="xsd:string" 
+         sql:field="PropertyType"/>
+        <xsd:element name="PropertyAccessType" type="xsd:string" 
+         sql:field="PropertyAccessType"/>
+        <xsd:element name="IsRequired" type="xsd:boolean" 
+         sql:field="IsRequired"/>
+        <xsd:element name="Value" type="xsd:string" 
+         sql:field="Value"/>
+       </xsd:sequence>
+      </xsd:complexType>
+     </xsd:schema>
+          <row>
+            <PropertyName>MdpropMdxSubqueries</PropertyName>
+            <PropertyDescription>MdpropMdxSubqueries</PropertyDescription>
+            <PropertyType>int</PropertyType>
+            <PropertyAccessType>Read</PropertyAccessType>
+            <IsRequired>false</IsRequired>
+            <Value>15</Value>
+          </row>
+    </root>
+   </m:return>
+  </m:DiscoverResponse>
+ </soap:Body>
+</soap:Envelope>

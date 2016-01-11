@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <soap:Body>
+        <m:DiscoverResponse xmlns:m="urn:schemas-microsoft-com:xml-analysis">
+            <m:return>
+                <root xmlns="urn:schemas-microsoft-com:xml-analysis:rowset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                    <xsd:schema xmlns="urn:schemas-microsoft-com:xml-analysis:rowset" targetNamespace="urn:schemas-microsoft-com:xml-analysis:rowset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sql="urn:schemas-microsoft-com:xml-sql" elementFormDefault="qualified">
+                        <xsd:element name="root">
+                            <xsd:complexType>
+                                <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:element name="row" type="row" />
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:complexType name="row">
+                            <xsd:sequence>
+                                <xsd:element sql:field="LiteralName" name="LiteralName" type="xsd:string" />
+                                <xsd:element sql:field="LiteralValue" name="LiteralValue" type="xsd:string" />
+                                <xsd:element sql:field="LiteralInvalidChars" name="LiteralInvalidChars" type="xsd:string" minOccurs="0" />
+                                <xsd:element sql:field="LiteralInvalidStartingChars" name="LiteralInvalidStartingChars" type="xsd:string" minOccurs="0" />
+                                <xsd:element sql:field="LiteralMaxLength" name="LiteralMaxLength" type="xsd:int" minOccurs="0" />
+                                <xsd:element sql:field="LiteralNameEnumValue" name="LiteralNameEnumValue" type="xsd:int" minOccurs="0" />
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:schema>
+                    <row>
+                        <LiteralName>DBLITERAL_CATALOG_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>24</LiteralMaxLength>
+                        <LiteralNameEnumValue>2</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_CATALOG_SEPARATOR</LiteralName>
+                        <LiteralValue>.</LiteralValue>
+                        <LiteralMaxLength>0</LiteralMaxLength>
+                        <LiteralNameEnumValue>3</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_COLUMN_ALIAS</LiteralName>
+                        <LiteralInvalidChars>'"[]</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>5</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_COLUMN_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>6</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_CORRELATION_NAME</LiteralName>
+                        <LiteralInvalidChars>'"[]</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>7</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_CUBE_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>21</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_DIMENSION_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>22</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_HIERARCHY_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>23</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_LEVEL_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>24</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_MEMBER_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>25</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_PROCEDURE_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>14</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_PROPERTY_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>26</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_QUOTE_PREFIX</LiteralName>
+                        <LiteralValue>[</LiteralValue>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>15</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_QUOTE_SUFFIX</LiteralName>
+                        <LiteralValue>]</LiteralValue>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>28</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_TABLE_NAME</LiteralName>
+                        <LiteralInvalidChars>.</LiteralInvalidChars>
+                        <LiteralInvalidStartingChars>0123456789</LiteralInvalidStartingChars>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>17</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_TEXT_COMMAND</LiteralName>
+                        <LiteralMaxLength>-1</LiteralMaxLength>
+                        <LiteralNameEnumValue>18</LiteralNameEnumValue>
+                    </row>
+                    <row>
+                        <LiteralName>DBLITERAL_USER_NAME</LiteralName>
+                        <LiteralMaxLength>0</LiteralMaxLength>
+                        <LiteralNameEnumValue>19</LiteralNameEnumValue>
+                    </row>
+                </root>
+            </m:return>
+        </m:DiscoverResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,6 @@
+</root>
+</cxmla:return>
+</cxmla:DiscoverResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

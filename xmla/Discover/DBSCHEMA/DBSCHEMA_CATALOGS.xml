@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <soap:Body>
+        <m:DiscoverResponse xmlns:m="urn:schemas-microsoft-com:xml-analysis">
+            <m:return>
+                <root xmlns="urn:schemas-microsoft-com:xml-analysis:rowset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                    <xsd:schema xmlns="urn:schemas-microsoft-com:xml-analysis:rowset" targetNamespace="urn:schemas-microsoft-com:xml-analysis:rowset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sql="urn:schemas-microsoft-com:xml-sql" elementFormDefault="qualified">
+                        <xsd:element name="root">
+                            <xsd:complexType>
+                                <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:element name="row" type="row" />
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:complexType name="row">
+                            <xsd:sequence>
+                                <xsd:element sql:field="CATALOG_NAME" name="CATALOG_NAME" type="xsd:string" />
+                                <xsd:element sql:field="DESCRIPTION" name="DESCRIPTION" type="xsd:string" />
+                                <xsd:element sql:field="ROLES" name="ROLES" type="xsd:string" />
+                                <xsd:element sql:field="DATE_MODIFIED" name="DATE_MODIFIED" type="xsd:dateTime" />
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:schema>
+					<row>
+						<CATALOG_NAME>Test Catalog</CATALOG_NAME>
+						<DESCRIPTION>Test Catalog</DESCRIPTION>
+						<ROLES>*,ra,rb</ROLES>
+						<DATE_MODIFIED>2008-02-08T02:47:54</DATE_MODIFIED>
+					</row>
+                </root>
+            </m:return>
+        </m:DiscoverResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,139 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+<cxmla:DiscoverResponse xmlns:cxmla="urn:schemas-microsoft-com:xml-analysis">
+  <cxmla:return>
+    <root xmlns="urn:schemas-microsoft-com:xml-analysis:rowset" xmlns:EX="urn:schemas-microsoft-com:xml-analysis:exception" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <xsd:schema xmlns:sql="urn:schemas-microsoft-com:xml-sql" elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:xml-analysis:rowset">
+        <xsd:element name="root">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" minOccurs="0" name="row" type="row"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:simpleType name="uuid">
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:complexType name="row">
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CATALOG_NAME" sql:field="CATALOG_NAME" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SCHEMA_NAME" sql:field="SCHEMA_NAME" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CUBE_NAME" sql:field="CUBE_NAME" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="DIMENSION_UNIQUE_NAME" sql:field="DIMENSION_UNIQUE_NAME" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HIERARCHY_UNIQUE_NAME" sql:field="HIERARCHY_UNIQUE_NAME" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="LEVEL_UNIQUE_NAME" sql:field="LEVEL_UNIQUE_NAME" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="MEMBER_UNIQUE_NAME" sql:field="MEMBER_UNIQUE_NAME" type="xsd:string"/>
+            <xsd:element name="PROPERTY_NAME" sql:field="PROPERTY_NAME" type="xsd:string"/>
+            <xsd:element name="PROPERTY_CAPTION" sql:field="PROPERTY_CAPTION" type="xsd:string"/>
+            <xsd:element name="PROPERTY_TYPE" sql:field="PROPERTY_TYPE" type="xsd:short"/>
+            <xsd:element name="DATA_TYPE" sql:field="DATA_TYPE" type="xsd:unsignedShort"/>
+            <xsd:element minOccurs="0" name="PROPERTY_CONTENT_TYPE" sql:field="PROPERTY_CONTENT_TYPE" type="xsd:short"/>
+            <xsd:element minOccurs="0" name="DESCRIPTION" sql:field="DESCRIPTION" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:schema>
+      <row>
+        <PROPERTY_NAME>BACK_COLOR</PROPERTY_NAME>
+        <PROPERTY_CAPTION>BACK_COLOR</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>CELL_EVALUATION_LIST</PROPERTY_NAME>
+        <PROPERTY_CAPTION>CELL_EVALUATION_LIST</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>CELL_ORDINAL</PROPERTY_NAME>
+        <PROPERTY_CAPTION>CELL_ORDINAL</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>19</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>FORE_COLOR</PROPERTY_NAME>
+        <PROPERTY_CAPTION>FORE_COLOR</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>FONT_NAME</PROPERTY_NAME>
+        <PROPERTY_CAPTION>FONT_NAME</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>FONT_SIZE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>FONT_SIZE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>FONT_FLAGS</PROPERTY_NAME>
+        <PROPERTY_CAPTION>FONT_FLAGS</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>19</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>FORMATTED_VALUE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>FORMATTED_VALUE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>FORMAT_STRING</PROPERTY_NAME>
+        <PROPERTY_CAPTION>FORMAT_STRING</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>NON_EMPTY_BEHAVIOR</PROPERTY_NAME>
+        <PROPERTY_CAPTION>NON_EMPTY_BEHAVIOR</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>SOLVE_ORDER</PROPERTY_NAME>
+        <PROPERTY_CAPTION>SOLVE_ORDER</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>3</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>VALUE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>VALUE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>12</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>DATATYPE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>DATATYPE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>130</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>LANGUAGE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>LANGUAGE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>19</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>ACTION_TYPE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>ACTION_TYPE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>1009</DATA_TYPE>
+      </row>
+      <row>
+        <PROPERTY_NAME>UPDATEABLE</PROPERTY_NAME>
+        <PROPERTY_CAPTION>UPDATEABLE</PROPERTY_CAPTION>
+        <PROPERTY_TYPE>2</PROPERTY_TYPE>
+        <DATA_TYPE>19</DATA_TYPE>
+      </row>
+    </root>
+  </cxmla:return>
+</cxmla:DiscoverResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
