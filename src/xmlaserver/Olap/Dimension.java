@@ -97,4 +97,3 @@ public class Dimension extends CubeMetadata {
         }
     }	
 }
-

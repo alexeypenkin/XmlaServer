@@ -34,4 +34,3 @@ public class Measure extends Member {
 		return defaultFormatString;
 	}
 }
-

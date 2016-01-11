@@ -106,7 +106,7 @@ public class Hierarchy extends CubeMetadata {
 		
 		// Members may not be loaded yet, so let's create an un-initialized member (name = null)
 		// as we have enough information with identifiers for all levels
-		// [Portfolio].[Business Hierarchy].[2].[21].[211]
+		// [Region].[Region].[2].[21].[211]
 		if (levels.size() == 0)
 			return null;
 		
@@ -142,54 +142,3 @@ public class Hierarchy extends CubeMetadata {
         return getFullUniqueName().hashCode();
     }
 }
-
-
-/*
-<CATALOG_NAME>FoodMart</CATALOG_NAME>
-<SCHEMA_NAME>FoodMart</SCHEMA_NAME>
-<CUBE_NAME>VAST2</CUBE_NAME>
-<DIMENSION_UNIQUE_NAME>[Position]</DIMENSION_UNIQUE_NAME>
-<HIERARCHY_NAME>Position.Booking System</HIERARCHY_NAME>
-<HIERARCHY_UNIQUE_NAME>[Position].[Position.Booking System]</HIERARCHY_UNIQUE_NAME>
-<HIERARCHY_CAPTION>Booking System</HIERARCHY_CAPTION>
-<DIMENSION_TYPE>3</DIMENSION_TYPE>
-<HIERARCHY_CARDINALITY>2</HIERARCHY_CARDINALITY>
-<DEFAULT_MEMBER>
-[Position.Booking System].[All Position.Booking Systems]
-</DEFAULT_MEMBER>
-<ALL_MEMBER>
-[Position.Booking System].[All Position.Booking Systems]
-</ALL_MEMBER>
-<DESCRIPTION>VAST2 Cube - Position.Booking System Hierarchy</DESCRIPTION>
-<STRUCTURE>0</STRUCTURE>
-<IS_VIRTUAL>false</IS_VIRTUAL>
-<IS_READWRITE>false</IS_READWRITE>
-<DIMENSION_UNIQUE_SETTINGS>0</DIMENSION_UNIQUE_SETTINGS>
-<DIMENSION_IS_VISIBLE>true</DIMENSION_IS_VISIBLE>
-<HIERARCHY_IS_VISIBLE>true</HIERARCHY_IS_VISIBLE>
-<HIERARCHY_ORDINAL>12</HIERARCHY_ORDINAL>
-<DIMENSION_IS_SHARED>true</DIMENSION_IS_SHARED>
-<PARENT_CHILD>false</PARENT_CHILD>
-
-
-<CATALOG_NAME>FoodMart</CATALOG_NAME>
-<SCHEMA_NAME>FoodMart</SCHEMA_NAME>
-<CUBE_NAME>VAST2</CUBE_NAME>
-<DIMENSION_UNIQUE_NAME>[Position]</DIMENSION_UNIQUE_NAME>
-<HIERARCHY_NAME>Position.Business Hierarchy</HIERARCHY_NAME>
-<HIERARCHY_UNIQUE_NAME>[Position].[Position.Business Hierarchy]</HIERARCHY_UNIQUE_NAME>
-<HIERARCHY_CAPTION>Business Hierarchy</HIERARCHY_CAPTION>
-<DIMENSION_TYPE>3</DIMENSION_TYPE>
-<HIERARCHY_CARDINALITY>13</HIERARCHY_CARDINALITY>
-<DEFAULT_MEMBER>[Position.Business Hierarchy].[19]</DEFAULT_MEMBER>
-<DESCRIPTION>VAST2 Cube - Position.Business Hierarchy Hierarchy</DESCRIPTION>
-<STRUCTURE>0</STRUCTURE>
-<IS_VIRTUAL>false</IS_VIRTUAL>
-<IS_READWRITE>false</IS_READWRITE>
-<DIMENSION_UNIQUE_SETTINGS>0</DIMENSION_UNIQUE_SETTINGS>
-<DIMENSION_IS_VISIBLE>true</DIMENSION_IS_VISIBLE>
-<HIERARCHY_IS_VISIBLE>true</HIERARCHY_IS_VISIBLE>
-<HIERARCHY_ORDINAL>6</HIERARCHY_ORDINAL>
-<DIMENSION_IS_SHARED>true</DIMENSION_IS_SHARED>
-<PARENT_CHILD>false</PARENT_CHILD>
-*/

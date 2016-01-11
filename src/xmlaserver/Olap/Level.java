@@ -109,7 +109,7 @@ public class Level extends CubeMetadata implements Comparable<Level> {
 		registerChild(member.getUniqueName(), member);
 		
 		// Register names of the top level with Hierarchy so name resolver works fine for
-		// [Portfolio].[Business Hierarchy].[1].[11].[112]
+		// [Region].[Region].[1].[11].[112]
 		if (getOrdinal() == 0 || previousLevel.getType() == Level.Type.MDLEVEL_TYPE_ALL ) 
 			hierarchy.registerChild(member.getUniqueName(), member);
 	}
@@ -245,23 +245,3 @@ public class Level extends CubeMetadata implements Comparable<Level> {
 	    }
 	}
 }
-
-/*
-<CATALOG_NAME>FoodMart</CATALOG_NAME>
-<SCHEMA_NAME>FoodMart</SCHEMA_NAME>
-<CUBE_NAME>VAST2</CUBE_NAME>
-<DIMENSION_UNIQUE_NAME>[Position]</DIMENSION_UNIQUE_NAME>
-<HIERARCHY_UNIQUE_NAME>[Position].[Position.Business Hierarchy]</HIERARCHY_UNIQUE_NAME>
-<LEVEL_NAME>L2</LEVEL_NAME>
-<LEVEL_UNIQUE_NAME>[Position].[Position.Business Hierarchy].[L2]</LEVEL_UNIQUE_NAME>
-<LEVEL_CAPTION>L2</LEVEL_CAPTION>
-<LEVEL_NUMBER>1</LEVEL_NUMBER>
-<LEVEL_CARDINALITY>1</LEVEL_CARDINALITY>
-<LEVEL_TYPE>0</LEVEL_TYPE>
-<CUSTOM_ROLLUP_SETTINGS>0</CUSTOM_ROLLUP_SETTINGS>
-<LEVEL_UNIQUE_SETTINGS>1</LEVEL_UNIQUE_SETTINGS>
-<LEVEL_IS_VISIBLE>true</LEVEL_IS_VISIBLE>
-<DESCRIPTION>
-VAST2 Cube - Position.Business Hierarchy Hierarchy - L2 Level
-</DESCRIPTION>
-*/
